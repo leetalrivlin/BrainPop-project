@@ -3,33 +3,16 @@
       <h3>month</h3>
       <ul class="monthUl">
         <activity-box></activity-box>
-        <div v-bind="getData">{{ activitiesData }}</div>
       </ul>
    </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import axios from 'axios';
 import ActivityBox from './ActivityBox.vue';
-
-Vue.use(axios);
 
 export default {
   components: {
     ActivityBox,
-  },
-  data() {
-    return {
-      activitiesData: [],
-    };
-  },
-  methods: {
-    getData() {
-      axios
-        .get('https://10.0.2.2:3000/activities/v1/module.exports.json')
-        .then(response => (this.activitiesData === response));
-    },
   },
   /* getData() {
       fetch('https://10.0.2.2:3000/activities/v1/module.exports.json').then((response) => {
