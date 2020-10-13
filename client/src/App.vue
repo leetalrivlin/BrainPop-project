@@ -1,14 +1,15 @@
 <template>
-  <div id="app">
+  <div>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Activities</router-link> |
       <router-link to="/about">About</router-link>
+    </div>
+    <div class="appDiv">
       <h2>Timeline</h2>
       <autocomplete-search></autocomplete-search>
       <filter-by></filter-by>
       <month-section></month-section>
     </div>
-    <router-view/>
   </div>
 </template>
 
@@ -23,29 +24,19 @@ export default {
     FilterBy,
     MonthSection,
   },
-
 };
 </script>
 
 <style>
-#app {
+.appDiv {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: gray;
+  align-items: center;
+  text-align: left;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+ul {
+  padding-inline-start: 0px;
 }
 </style>
