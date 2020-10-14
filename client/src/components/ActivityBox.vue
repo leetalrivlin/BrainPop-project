@@ -51,7 +51,7 @@ export default {
     border: 1px solid rgb(199, 198, 198);
     border-radius: 5px;
     height: 60px;
-    padding: 10px;
+    padding: 5px;
 }
 .activityData {
     display: flex;

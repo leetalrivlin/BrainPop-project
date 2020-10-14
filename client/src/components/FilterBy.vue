@@ -2,7 +2,7 @@
     <div class="filterByDiv">
         <ul class="filterByUl">
             <li class="typeBox">Type</li>
-            <li class="typeBox">Type 2</li>
+            <li class="typeBox">Type 2354656</li>
         </ul>
         <div class="allFilters">
         </div>
@@ -17,7 +17,9 @@ export default {
 
 <style scoped>
 .filterByUl {
-  display:inline;
+  display: flex;
+  flex-direction: row;
+
 }
 .typeBox {
   list-style: none;
@@ -26,6 +28,6 @@ export default {
   padding: 5px 10px;
   margin-right: 10px;
   text-align: center;
-  width: 200px;
+  width: auto;
 }
 </style>
