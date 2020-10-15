@@ -1,18 +1,16 @@
 <template>
   <div class="activityBoxDiv">
-    <li class="activityData">
-      <div>
-          <p>src= {{ icon }}</p>
+      <div class="leftInfo">
+        <div>
+          <p class="icon">{{ icon }}</p>
+        </div>
+        <h3 class="name">{{ activityName }}</h3>
+        <p class="date">{{ date }}</p>
       </div>
-      <div>
-        <h3>{{ activityName }}</h3>
-        <p>{{ date }}</p>
+      <div class="rightInfo">
+        <p class="score" v-if="score.length > 0">Score <b>{{ score }}/{{ possibleScore }}</b></p>
+        <button class="viewButton">View work</button>
       </div>
-      <div>
-        <p>Score {{ score }} / {{ possibleScore }}</p>
-        <button>View work</button>
-      </div>
-    </li>
   </div>
 </template>
 
@@ -52,10 +50,37 @@ export default {
     border-radius: 5px;
     height: 60px;
     padding: 5px;
-}
-.activityData {
+    margin-bottom: 1rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    list-style: none;
+    font-size: 0.8rem;
+}
+.leftInfo {
+    display: inline;
+}
+.rightInfo {
+    justify-content: flex-end;
+    color: rgb(10, 161, 167);
+    display: inline-block;
+}
+.icon ,
+.name ,
+.date ,
+.score ,
+.viewButton {
+    margin: 0px;
+}
+.name ,
+.viewButton
+ {
+    font-weight: bold;
+}
+.viewButton {
+    text-decoration: none;
+    border: none;
+    background: none;
+    color: rgb(10, 161, 167);
+    cursor: pointer;
 }
 </style>

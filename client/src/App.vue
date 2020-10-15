@@ -1,22 +1,20 @@
 <template>
-  <div>
-    <div class="appDiv">
-      <h2>Timeline</h2>
-      <autocomplete-search></autocomplete-search>
-      <h3>Filter by:</h3>
-      <filter-by></filter-by>
-      <div>
-        <activity-box v-for="activity in activities"
-          :key="activity.id"
-          :type="activity.resource_type"
-          :score="activity.score"
-          :possible-score="activity.possible_score"
-          :product="activity.product"
-          :activity-name="activity.topic_data.name"
-          :icon="activity.topic_data.icon_path"
-          :date="activity.d_created">
-        </activity-box>
-      </div>
+  <div class="appDiv">
+    <h2>Timeline</h2>
+    <autocomplete-search></autocomplete-search>
+    <h3>Filter by:</h3>
+    <filter-by :all-activities="activities" :activity-type="type"></filter-by>
+    <div>
+      <activity-box v-for="activity in activities"
+        :key="activity.id"
+        :type="activity.resource_type"
+        :score="activity.score"
+        :possible-score="activity.possible_score"
+        :product="activity.product"
+        :activity-name="activity.topic_data.name"
+        :icon="activity.topic_data.icon_path"
+        :date="activity.d_created">
+      </activity-box>
     </div>
   </div>
 </template>
@@ -60,11 +58,17 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: gray;
+  color: rgb(63, 63, 63);
   align-items: center;
   text-align: left;
+  width: 65%;
+  margin: auto;
 }
 ul {
   padding-inline-start: 0px;
+}
+h3 {
+  font-size: 0.8rem;
+  font-weight: lighter;
 }
 </style>
