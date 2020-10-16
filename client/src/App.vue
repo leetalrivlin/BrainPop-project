@@ -13,7 +13,8 @@
         :product="activity.product"
         :activity-name="activity.topic_data.name"
         :icon="activity.topic_data.icon_path"
-        :jsn-date="activity.d_created">
+        :jsn-date="activity.d_created"
+        :comment="activity.comment">
       </activity-box>
     </div>
   </div>

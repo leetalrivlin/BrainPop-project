@@ -1,12 +1,15 @@
 // import moment from 'moment';
 import Vue from 'vue';
-import App from './App.vue';
+import VueRouter from 'vue-router';
 import router from './router';
+import App from './App.vue';
 import DateFilter from './filters/date-filter';
 
 Vue.config.productionTip = false;
 
 Vue.filter('date', DateFilter);
+
+Vue.use(VueRouter);
 
 /* Vue.filter('formatDate', (value) => {
   if (value) {
