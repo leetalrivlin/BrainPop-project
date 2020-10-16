@@ -3,7 +3,7 @@
     <h2>Timeline</h2>
     <autocomplete-search></autocomplete-search>
     <h3>Filter by:</h3>
-    <filter-by :all-activities="activities" :activity-type="type"></filter-by>
+    <filter-by :types="types"></filter-by>
     <div>
       <activity-box v-for="activity in activities"
         :key="activity.id"
@@ -39,6 +39,17 @@ export default {
       activities: [],
       icon: '',
       type: '',
+      types: [
+        'Challenge',
+        'Make-a-Map',
+        'Draw About It',
+        'Easy Quiz',
+        'Make-a-Movie',
+        'Movie',
+        'Quiz',
+        'Related Reading',
+        'Word Play',
+      ],
     };
   },
   async created() {
@@ -61,7 +72,7 @@ export default {
   color: rgb(63, 63, 63);
   align-items: center;
   text-align: left;
-  width: 65%;
+  width: 68%;
   margin: auto;
 }
 ul {

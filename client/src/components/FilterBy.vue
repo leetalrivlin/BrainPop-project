@@ -2,14 +2,15 @@
   <div>
     <ul class="filterByUl">
         <li class="typeBox">All work</li>
-        <li class="typeBox" >{{ activityType }}</li>
+        <li class="typeBox" v-for="type in types"
+        :key="type.id">{{ type }}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['activityType', 'allActivities'],
+  props: ['types'],
   data() {
     return {
     };
@@ -23,6 +24,7 @@ export default {
 .filterByUl {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .typeBox {
   list-style: none;
@@ -32,9 +34,10 @@ export default {
   margin-right: 5px;
   text-align: center;
   width: auto;
+  max-height: 1rem;
   background: none;
   color: rgb(6, 138, 143);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: bold;
 }
 .typeBox:hover {
