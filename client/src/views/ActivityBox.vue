@@ -9,22 +9,66 @@
       </div>
       <div class="rightInfo">
         <p class="score" v-if="score.length > 0">Score <b>{{ score }}/{{ possibleScore }}</b></p>
-        <button class="viewButton"><PhEye/> View work</button>
+        <button class="viewButton" @click="open = !open"><PhEye/> View work</button>
+        <zoom-view :open="open" @close="open = false">
+          <template slot="zoom-name" v-if="open">{{ zoomInfo.zoomName }}</template>
+          <template slot="zoom-comment" v-if="open">{{ zoomInfo.zoomComment }}</template>
+        </zoom-view>
       </div>
   </div>
 </template>
 
 <script>
 import { PhEye } from 'phosphor-vue';
+import ZoomView from './ZoomView.vue';
 
 export default {
-  props: ['activityName', 'score', 'possibleScore', 'icon', 'jsnDate'],
-  components: {
-    PhEye,
-  },
+  props: ['activityName', 'score', 'possibleScore', 'icon', 'jsnDate', 'comment'],
   data() {
     return {
+      open: false,
+      zoomInfo: {
+        zoomIcon: this.icon,
+        zoomName: this.activityName,
+        zoomDate: this.jsnDate,
+        zoomComment: this.comment,
+        zoomScore: this.score,
+        zoomPossibleScore: this.possibleScore,
+      },
     };
+  },
+  components: {
+    PhEye,
+    ZoomView,
+  },
+  created() {
+    this.checkZoom();
+  },
+  watch: {
+    // eslint-disable-next-line
+    $route(to, from) {
+      this.checkZoom();
+    },
+    // eslint-disable-next-line
+    open(to, from) {
+      if (to === false) {
+        if (this.$route.params.zoomView) {
+          this.$router.push('/');
+        }
+      }
+    },
+  },
+  methods: {
+    checkZoom() {
+      if (this.$route.params.zoomView && this.zoomInfo[this.$route.params.zoomView]) {
+        this.open = true;
+      } else {
+        this.open = false;
+      }
+    },
+    showZoom(theName) {
+      this.$router.push(theName).catch(() => {});
+    },
   },
 };
 </script>
@@ -84,5 +128,9 @@ export default {
     cursor: pointer;
     margin-right: 0.7rem;
     margin-left: 0.7rem;
+}
+.viewButton:focus {
+  outline: none;
+  color: rgb(111, 112, 112);
 }
 </style>

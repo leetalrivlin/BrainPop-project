@@ -25,7 +25,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import AutocompleteSearch from './components/AutocompleteSearch.vue';
 import FilterBy from './components/FilterBy.vue';
-import ActivityBox from './components/ActivityBox.vue';
+import ActivityBox from './views/ActivityBox.vue';
 
 Vue.use(axios);
 
