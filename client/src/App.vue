@@ -7,6 +7,7 @@
     <div>
       <activity-box v-for="activity in activities"
         :key="activity.id"
+        :id="activity.id"
         :type="activity.resource_type"
         :score="activity.score"
         :possible-score="activity.possible_score"

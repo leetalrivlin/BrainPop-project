@@ -4,7 +4,7 @@
         <img class="icon" :src="icon" />
         <div class="info">
           <h3 class="name">{{ activityName }}</h3>
-          <p class="date">{{ jsnDate | date }}</p>
+          <p class="date">{{ jsnDate }}</p>
         </div>
       </div>
       <div class="rightInfo">
@@ -12,7 +12,12 @@
         <button class="viewButton" @click="open = !open"><PhEye/> View work</button>
         <zoom-view :open="open" @close="open = false">
           <template slot="zoom-name" v-if="open">{{ zoomInfo.zoomName }}</template>
+          <template slot="zoom-date" v-if="open">{{ zoomInfo.zoomDate }}</template>
+          <template slot="zoom-icon" v-if="open">{{ zoomInfo.zoomIcon }}</template>
           <template slot="zoom-comment" v-if="open">{{ zoomInfo.zoomComment }}</template>
+          <template slot="zoom-score" v-if="open">{{ zoomInfo.zoomScore }}</template>
+          <template slot="zoom-possible-score" v-if="open">{{ zoomInfo.zoomPossibleScore }}
+          </template>
         </zoom-view>
       </div>
   </div>
@@ -23,7 +28,7 @@ import { PhEye } from 'phosphor-vue';
 import ZoomView from './ZoomView.vue';
 
 export default {
-  props: ['activityName', 'score', 'possibleScore', 'icon', 'jsnDate', 'comment'],
+  props: ['activityName', 'score', 'possibleScore', 'icon', 'jsnDate', 'comment', 'id'],
   data() {
     return {
       open: false,

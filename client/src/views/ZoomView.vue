@@ -2,20 +2,23 @@
   <div class="zoomDiv" :class="{'open' : open}">
     <button class="closeButton" @click="$emit('close')">X</button>
     <div class="center">
-      <p>icon</p>
-      <h1 class="actName">{{ zoomName }}</h1>
-      <p class="date">date</p>
+      <p><slot name="zoom-icon">icon</slot></p>
+      <h1 class="actName"><slot name="zoom-name">{{ zoomName }}</slot></h1>
+      <p class="date"><slot name="zoom-date">{{ zoomDate }}</slot></p>
     </div>
     <div class="left">
-      <p class="comment">{{ zoomComment}}</p>
-      <p class="score">Score</p>
+      <p class="comment"><slot name="zoom-comment">{{ zoomComment }}</slot>!</p>
+      <p class="score">Score
+        <slot name="zoom-score">{{ zoomScore }}</slot><span>/</span>
+        <slot name="zoom-possible-score">{{ zoomPossibleScore }}</slot>
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['open', 'zoom-comment', 'zoom-name'],
+  props: ['open', 'zoom-comment', 'zoom-name', 'zoom-date', 'zoom-icon', 'zoom-score', 'zoom-possible-score'],
 };
 </script>
 
