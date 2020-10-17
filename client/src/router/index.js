@@ -1,25 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import ActivityBox from '../views/ActivityBox.vue';
-import ZoomView from '../views/ZoomView.vue';
+import Activities from '../views/Activities.vue';
+
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'activity-box',
-    component: ActivityBox,
+    name: 'activities',
+    component: Activities,
     children: [
       {
-        path: ':zoomView',
+        path: ':zoom',
       },
     ],
-  },
-  {
-    path: '/ZoomView',
-    name: 'zoom-view',
-    component: ZoomView,
   },
 ];
 

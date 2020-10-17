@@ -25,7 +25,7 @@
 
 <script>
 import { PhEye } from 'phosphor-vue';
-import ZoomView from './ZoomView.vue';
+import ZoomView from '../views/ZoomView.vue';
 
 export default {
   props: ['activityName', 'score', 'possibleScore', 'icon', 'jsnDate', 'comment', 'id'],

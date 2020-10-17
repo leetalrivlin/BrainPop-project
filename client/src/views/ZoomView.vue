@@ -1,8 +1,8 @@
 <template>
   <div class="zoomDiv" :class="{'open' : open}">
-    <button class="closeButton" @click="$emit('close')">X</button>
+    <button class="closeButton" @click="$emit('close')"><PhXCircle/></button>
     <div class="center">
-      <p><slot name="zoom-icon">icon</slot></p>
+      <slot name="zoom-icon"><img class="icon" :src="zoomIcon" /></slot>
       <h1 class="actName"><slot name="zoom-name">{{ zoomName }}</slot></h1>
       <p class="date"><slot name="zoom-date">{{ zoomDate }}</slot></p>
     </div>
@@ -17,8 +17,13 @@
 </template>
 
 <script>
+import { PhXCircle } from 'phosphor-vue';
+
 export default {
   props: ['open', 'zoom-comment', 'zoom-name', 'zoom-date', 'zoom-icon', 'zoom-score', 'zoom-possible-score'],
+  components: {
+    PhXCircle,
+  },
 };
 </script>
 
@@ -26,7 +31,7 @@ export default {
 .zoomDiv {
   z-index: 99;
   background-color: white;
-  border: 0.3rem solid rgb(199, 198, 198);
+  border: 0.3rem solid rgb(158, 158, 158);
   border-radius: 1.5rem;
   position: fixed;
   top: 50%;
@@ -47,6 +52,12 @@ export default {
   float: right;
   margin-top: 1rem;
   margin-right: 1rem;
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: rgb(158, 158, 158);
 }
 .center {
   margin-top: 3rem;

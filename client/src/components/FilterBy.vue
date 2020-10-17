@@ -32,6 +32,7 @@ export default {
   border-radius: 3px;
   padding: 6px 10px;
   margin-right: 5px;
+  margin-top: 5px;
   text-align: center;
   width: auto;
   max-height: 1rem;
