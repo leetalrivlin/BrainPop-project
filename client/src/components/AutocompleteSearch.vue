@@ -1,7 +1,9 @@
 <template>
     <div class="autocomplete">
       <input
+      class="inputClass"
       type="text"
+      placeholder="Search Timeline"
       v-model="search"
       @input="onChange"/>
       <ul v-show="isOpen" class="autocomplete-results">
@@ -51,24 +53,24 @@ export default {
 <style>
   .autocomplete {
     position: relative;
-    width: 130px;
+    width: 26vw;
   }
-
+  .inputClass {
+    width:25vw;
+  }
   .autocomplete-results {
     padding: 0;
     margin: 0;
     border: 1px solid #eeeeee;
-    height: 120px;
+    height: auto;
     overflow: auto;
   }
-
   .autocomplete-result {
     list-style: none;
     text-align: left;
     padding: 4px 2px;
     cursor: pointer;
   }
-
   .autocomplete-result:hover {
     background-color: #4AAE9B;
     color: white;

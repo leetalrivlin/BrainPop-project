@@ -72,23 +72,17 @@ export default {
     showZoom(theName) {
       this.$router.push(theName).catch(() => {});
     },
-    convertTime(thetime) {
-      Math.floor(new Date().getTime(thetime) / 1000.0);
-    },
-    /* getImgUrl(path) {
-      (path) => {
-        if (this.activityName === 'dogs') {
-          return require('../assets/topics/dogs.png');
-        } else if (this.activityName === 'cells') {
-          return require('../assets/topics/cells.png');
-        } else if (this.activityName === 'camouflage') {
-          return require('../assets/topics/camouflage.png');
-        } else if (this.activityName === 'ada lovelace') {
-          return require('../assets/topics/adalovelace.png');
-        } else if (this.activityName === 'dna') {
-          return require('../assets/topics/dna.png');
-        };
-      }
+    /*
+    //Try #2 to convert date
+    convertTime(value) {
+      const date = new Date(value);
+      return date.toLocaleDateString(['en-US'], {
+        month: 'short',
+        day: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
     }, */
   },
 };

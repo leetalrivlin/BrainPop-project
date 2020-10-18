@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Activities from '../views/Activities.vue';
-// import ZoomView from '../views/ZoomView.vue';
+import ZoomView from '../views/ZoomView.vue';
 
 
 Vue.use(VueRouter);
@@ -16,7 +16,8 @@ const routes = [
     component: Activities,
     children: [
       {
-        path: ':zoom',
+        path: '/zoom',
+        component: ZoomView,
       },
     ],
   },
