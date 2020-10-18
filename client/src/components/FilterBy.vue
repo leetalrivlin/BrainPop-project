@@ -11,12 +11,6 @@
 <script>
 export default {
   props: ['types'],
-  data() {
-    return {
-    };
-  },
-  methods: {
-  },
 };
 </script>
 

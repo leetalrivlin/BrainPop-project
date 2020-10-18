@@ -9,16 +9,17 @@
       </div>
       <div class="rightInfo">
         <p class="score" v-if="score.length > 0">Score <b>{{ score }}/{{ possibleScore }}</b></p>
-        <button class="viewButton" @click="open = !open"><PhEye/> View work</button>
-        <zoom-view :open="open" @close="open = false">
-          <template slot="zoom-name" v-if="open">{{ zoomInfo.zoomName }}</template>
-          <template slot="zoom-date" v-if="open">{{ zoomInfo.zoomDate }}</template>
-          <template slot="zoom-icon" v-if="open">{{ zoomInfo.zoomIcon }}</template>
-          <template slot="zoom-comment" v-if="open">{{ zoomInfo.zoomComment }}</template>
-          <template slot="zoom-score" v-if="open">{{ zoomInfo.zoomScore }}</template>
-          <template slot="zoom-possible-score" v-if="open">{{ zoomInfo.zoomPossibleScore }}
-          </template>
-        </zoom-view>
+        <button class="viewButton" @click="open = !open">
+        <PhEye/> View work</button>
+          <zoom-view :open="open" @close="open = false">
+            <template slot="zoom-name" v-if="open">{{ zoomInfo.zoomName }}</template>
+            <template slot="zoom-date" v-if="open">{{ zoomInfo.zoomDate }}</template>
+            <template slot="zoom-icon" v-if="open">{{ zoomInfo.zoomIcon }}</template>
+            <template slot="zoom-comment" v-if="open">{{ zoomInfo.zoomComment }}</template>
+            <template slot="zoom-score" v-if="open">{{ zoomInfo.zoomScore }}</template>
+            <template slot="zoom-possible-score" v-if="open">{{ zoomInfo.zoomPossibleScore }}
+            </template>
+          </zoom-view>
       </div>
   </div>
 </template>
@@ -28,7 +29,7 @@ import { PhEye } from 'phosphor-vue';
 import ZoomView from '../views/ZoomView.vue';
 
 export default {
-  props: ['activityName', 'score', 'possibleScore', 'icon', 'jsnDate', 'comment', 'id'],
+  props: ['activityName', 'score', 'possibleScore', 'icon', 'jsnDate', 'comment', 'id', 'product'],
   data() {
     return {
       open: false,
@@ -45,9 +46,6 @@ export default {
   components: {
     PhEye,
     ZoomView,
-  },
-  created() {
-    this.checkZoom();
   },
   watch: {
     // eslint-disable-next-line
@@ -74,6 +72,24 @@ export default {
     showZoom(theName) {
       this.$router.push(theName).catch(() => {});
     },
+    convertTime(thetime) {
+      Math.floor(new Date().getTime(thetime) / 1000.0);
+    },
+    /* getImgUrl(path) {
+      (path) => {
+        if (this.activityName === 'dogs') {
+          return require('../assets/topics/dogs.png');
+        } else if (this.activityName === 'cells') {
+          return require('../assets/topics/cells.png');
+        } else if (this.activityName === 'camouflage') {
+          return require('../assets/topics/camouflage.png');
+        } else if (this.activityName === 'ada lovelace') {
+          return require('../assets/topics/adalovelace.png');
+        } else if (this.activityName === 'dna') {
+          return require('../assets/topics/dna.png');
+        };
+      }
+    }, */
   },
 };
 </script>
@@ -113,6 +129,7 @@ export default {
 .icon {
     margin-left: 0.7rem;
     margin-right: 0.7rem;
+    width:20px;
 }
 .name {
     margin-bottom: 0.3rem;

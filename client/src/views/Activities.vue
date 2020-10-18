@@ -1,7 +1,7 @@
 <template>
   <div class="appDiv">
     <h2>Timeline</h2>
-    <autocomplete-search></autocomplete-search>
+    <autocomplete-search :types="types"></autocomplete-search>
     <h3>Filter by:</h3>
     <filter-by :types="types"></filter-by>
     <div>
